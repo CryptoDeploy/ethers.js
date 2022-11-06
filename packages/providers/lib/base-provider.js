@@ -1170,40 +1170,7 @@ var BaseProvider = /** @class */ (function (_super) {
             var network, currentNetwork, error;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._ready()];
-                    case 1:
-                        network = _a.sent();
-                        return [4 /*yield*/, this.detectNetwork()];
-                    case 2:
-                        currentNetwork = _a.sent();
-                        if (!(network.chainId !== currentNetwork.chainId)) return [3 /*break*/, 5];
-                        if (!this.anyNetwork) return [3 /*break*/, 4];
-                        this._network = currentNetwork;
-                        // Reset all internal block number guards and caches
-                        this._lastBlockNumber = -2;
-                        this._fastBlockNumber = null;
-                        this._fastBlockNumberPromise = null;
-                        this._fastQueryDate = 0;
-                        this._emitted.block = -2;
-                        this._maxInternalBlockNumber = -1024;
-                        this._internalBlockNumber = null;
-                        // The "network" event MUST happen before this method resolves
-                        // so any events have a chance to unregister, so we stall an
-                        // additional event loop before returning from /this/ call
-                        this.emit("network", currentNetwork, network);
-                        return [4 /*yield*/, stall(0)];
-                    case 3:
-                        _a.sent();
-                        return [2 /*return*/, this._network];
-                    case 4:
-                        error = logger.makeError("underlying network changed", logger_1.Logger.errors.NETWORK_ERROR, {
-                            event: "changed",
-                            network: network,
-                            detectedNetwork: currentNetwork
-                        });
-                        this.emit("error", error);
-                        throw error;
-                    case 5: return [2 /*return*/, network];
+                    case 0: return [2 /*return*/, currentNetwork];
                 }
             });
         });
