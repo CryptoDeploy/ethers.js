@@ -16,7 +16,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/ethers-io/ethers.js.git"
+    "url": "https://github.com/CryptoDeploy/ethers.js"
   },
   "scripts": {
     "preinstall": "npm run bootstrap-hoist",
